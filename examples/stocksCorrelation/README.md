@@ -4,19 +4,16 @@ These are real outputs from running project-cartographer on a 134-file Python + 
 
 ## What's here
 
-```
-segments.json              # 16 detected segments, full metadata
-segments.mmd               # Mermaid: segment overview
-wave_plan.json             # 9 review waves + specialist assignments
-specialist_gaps.json       # 1 segment flagged as no-good-match (frontend config bundle)
-class_diagram.mmd          # 36 classes with bases, methods, fields
-pipelines.mmd              # combined Mermaid (top 10 pipelines)
-pipelines.json             # 11 traced pipelines (trimmed — full nodes elided)
-pipelines/                 # 3 sample per-pipeline Mermaid flowcharts
-openapi_summary.md         # 4-endpoint API table
-endpoints.md               # endpoint trace index + cross-endpoint reuse hot-list
-endpoints/                 # 3 sample per-endpoint detail cards
-```
+- **`FINAL_REPORT.md`** — the polished deliverable. Read this first.
+- **`outputs/`** — raw artifacts from the run (browse if you want to see what cartographer produces):
+  - `segments.json` / `segments.mmd` — 16 detected segments + Mermaid overview
+  - `wave_plan.json` — 9 review waves + specialist assignments
+  - `specialist_gaps.json` — 1 segment with no good specialist match
+  - `class_diagram.mmd` — 36 classes with bases, methods, fields
+  - `pipelines.mmd` / `pipelines.json` — 11 traced pipelines (combined + JSON)
+  - `pipelines/` — 3 sample per-pipeline Mermaid flowcharts
+  - `openapi_summary.md` — 4-endpoint API table
+  - `endpoints.md` + `endpoints/` — endpoint index + reuse hot-list + 3 sample detail cards
 
 `project-map.json` (~800KB), `class_diagram.mmd` full body, and full `pipelines/` are included for the top items only — to keep this folder browsable.
 

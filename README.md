@@ -1,10 +1,39 @@
 # project-cartographer
 
-A **Claude Code skill** that audits large codebases — repos with hundreds of files, multiple integrations, and cross-cutting consistency concerns. Conversational from start to finish; ships with 17 specialist reviewer roles; can map, review, and apply fixes.
+[![CI](https://github.com/roeimichael/project-cartographer/actions/workflows/ci.yml/badge.svg)](https://github.com/roeimichael/project-cartographer/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-8A2BE2)](https://claude.com/claude-code)
 
-> **For users**: install the skill, then in Claude Code say something like *"audit this project"* or *"map out my codebase"*. The skill walks you through scope → questions → review → backlog → fixes, asking for confirmation at each gate.
+> Map, audit, and refactor a 1000-file codebase the way a senior engineer would — but with 17 specialist reviewers running in parallel.
 
-> **For power users / CI**: every phase is a standalone Python script under `scripts/`. The convenience runner is `./run_pipeline.sh <project_root>`. Use `--readonly` to keep outputs out of the repo.
+A **Claude Code skill** that audits large codebases. Builds a dependency + call graph, traces pipelines from entry points, segments the repo by integration / domain, then dispatches per-segment specialist reviewers in waves. Synthesizes findings into a P0–P3 refactor backlog, optionally applies surgical fixes behind a confirmation gate.
+
+```bash
+# In Claude Code:
+"audit this project"
+"map out my codebase"
+"find duplication across the repo"
+```
+
+The skill walks you through scope → questions → review → backlog → fixes, asking for confirmation at each gate.
+
+## Quick install
+
+```bash
+pip install git+https://github.com/roeimichael/project-cartographer.git
+
+# Or clone for development
+git clone https://github.com/roeimichael/project-cartographer
+cd project-cartographer
+pip install -r requirements.txt
+```
+
+Then drop the folder into your Claude Code skills directory (location depends on your client) and trigger from inside Claude Code.
+
+## See it in action
+
+[`examples/stocksCorrelation/`](examples/stocksCorrelation/) — real outputs from a 134-file Python + React quant-trading project. Browse [`FINAL_REPORT.md`](examples/stocksCorrelation/FINAL_REPORT.md) for the polished deliverable, or [`outputs/`](examples/stocksCorrelation/outputs/) for raw artifacts.
 
 ## What it does — the short version
 
@@ -21,44 +50,28 @@ A **Claude Code skill** that audits large codebases — repos with hundreds of f
 
 The split between **scripts** (deterministic, ~30s for 300 files) and **subagents** (judgment, costs scale with segment count) keeps the agentic phase small. A 1000-file repo with 20 segments costs ~20 subagent invocations, not 1000 file reads.
 
-## What's new in v0.8
+See [CHANGELOG.md](CHANGELOG.md) for the full release history.
 
-- **Phase 7 polish** — `finalize_fixes.py` creates a branch before fixes, aggregates diffs into `fix_summary.md`, runs your test command (`--test-cmd "pytest -x"`)
-- **Progress heartbeat** — `cartographer status` shows the live phase/step/percentage; useful on long runs
-- **skills.sh scaffolding** — `agents/_registry.yml` + `install_specialist.py` for opt-in dynamic specialist install (registry ships mostly empty; users contribute verified entries)
-- **Real example outputs** — `examples/stocksCorrelation/` shows actual segment list, endpoint cards, pipeline diagrams from a real run
+## Running scripted phases without Claude Code
 
-## What's new in v0.7
-
-- Conversational gates at every decision point (segments → specialists → cost → review → fixes)
-- Phase 0 clarifying questions captured before any work
-- Synthesizer fix — agent reports' findings are now aggregated (silent gap in v0.6)
-- 3 new specialists: mobile, cli-tool, test-suite
-- Specialist coverage gaps surfaced when no installed specialist fits a segment
-- `--readonly` mode — outputs go to `~/.cartographer/<hash>/`
-
-See [CHANGELOG.md](CHANGELOG.md) for the full history.
-
-## Installing
-
-This is a Claude Code skill. **Drop the folder into your skills directory** (location depends on your Claude Code client — check Claude Code docs). On invocation, Claude Code reads `SKILL.md` and walks the user through.
-
-If you want to run the scripts manually:
+Phases 1 → 3.5 are deterministic Python — no LLM, no API key, ~30s for 300 files. Use them standalone for CI or just to get the diagrams:
 
 ```bash
-pip install -r requirements.txt --break-system-packages
+# Full scripted pipeline (Phases 1 → 3.5)
+cartographer run /path/to/your/repo
 
-# All scripted phases (1, 1.5, 1.6, 2, 3, 3.5) at once:
-./run_pipeline.sh /path/to/your/repo
+# --readonly keeps outputs out of the target repo
+cartographer run /path/to/your/repo --readonly
 
-# Or with --readonly (keeps your repo clean):
-./run_pipeline.sh /path/to/your/repo --readonly
+# Single phase
+cartographer map /path/to/repo --output ./out
+cartographer segment ./out/project-map.json --output ./out/segments.json
+```
 
-# After Claude Code has dispatched Phase 4 (review subagents) and reports
-# are in <output>/reports/, run synthesis:
-python scripts/synthesize.py <output>/reports/ \
-    --map <output>/project-map.json \
-    --output <output>/synthesis.json
+After Claude Code dispatches Phase 4 (review subagents) and reports land in `<output>/reports/`, synthesize:
+
+```bash
+cartographer synth <output>/reports/ --map <output>/project-map.json --output <output>/synthesis.json
 ```
 
 ## Triggering the skill in Claude Code
