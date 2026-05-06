@@ -23,7 +23,6 @@ For changes to scripts that affect output, run on at least one sample project an
 ## Checklist
 
 - [ ] Pipeline runs end-to-end on at least one sample project
-- [ ] CHANGELOG.md updated (if user-visible)
 - [ ] README.md updated (if user-facing feature or specialist)
 - [ ] New specialist? Added row to `agents/AGENTS.md` and README table
 - [ ] New integration detector? Tested on a real project that uses it

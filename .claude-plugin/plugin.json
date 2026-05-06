@@ -1,0 +1,20 @@
+{
+  "name": "project-cartographer",
+  "version": "0.8.0",
+  "description": "Map, audit, and refactor large codebases. Builds a dependency + call graph, segments by integration, dispatches 17 specialist reviewers in waves, synthesizes a P0–P3 backlog, optionally applies surgical fixes.",
+  "author": {
+    "name": "Roei Michael",
+    "email": "roeym111@gmail.com"
+  },
+  "homepage": "https://github.com/roeimichael/project-cartographer",
+  "repository": "https://github.com/roeimichael/project-cartographer",
+  "license": "MIT",
+  "keywords": [
+    "audit",
+    "code-review",
+    "refactor",
+    "static-analysis",
+    "monorepo",
+    "ast"
+  ]
+}

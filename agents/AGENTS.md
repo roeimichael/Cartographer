@@ -2,7 +2,7 @@
 
 Each segment in your project gets reviewed by **one specialist** picked by `scripts/match_specialists.py` based on the segment's detected integrations and file patterns. The specialist with the highest matching `priority` wins; if nothing matches, `generalist-reviewer` is the fallback.
 
-You can override per-segment matches manually — see `docs/customization.md`.
+You can override per-segment matches manually by editing `wave_plan.json.specialist_assignments` before Phase 4.
 
 ## Catalog
 
@@ -47,4 +47,4 @@ For each segment, `match_specialists.py`:
 3. Add an entry here in the catalog.
 4. If the specialist needs new integrations detected, also add them to `scripts/map_project.py`.
 
-See [`docs/customization.md`](../docs/customization.md) for the full extension guide.
+To add a new specialist: drop `agents/<name>-reviewer.md` with YAML frontmatter; the matcher auto-discovers it.

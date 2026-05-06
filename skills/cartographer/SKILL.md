@@ -129,7 +129,7 @@ Outputs:
 - `.cartographer/project-map.mmd` — Mermaid: file-level dependency graph
 - `.cartographer/class_diagram.mmd` — Mermaid `classDiagram` of project classes (with methods + fields + inheritance)
 
-If a language isn't yet supported, see `docs/customization.md`.
+If a language isn't yet supported, scripts/map_project.py is the place to extend.
 
 ---
 
@@ -376,7 +376,7 @@ Save selections to `.cartographer/fix_selection.json`. Don't dispatch Phase 7 wi
 
 ## Customization
 
-The integration detectors (Phase 1) and segment heuristics (Phase 2) are designed to be extended. See `docs/customization.md` for how to add detectors for new frameworks/services. Drop a new detector module into `scripts/detectors/` — no changes needed to the core scripts.
+The integration detectors (Phase 1) and segment heuristics (Phase 2) are designed to be extended. Edit `INTEGRATION_PATTERNS` in `scripts/map_project.py` (one regex per integration label) to add detectors for new frameworks/services.
 
 ## What this skill is NOT
 
