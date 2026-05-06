@@ -3,7 +3,7 @@ description: Build the dependency + call graph + Mermaid diagrams only — no re
 argument-hint: "[project-path]"
 ---
 
-Run only the deterministic scripted phases (1, 1.5, 1.6, 2, 3, 3.5) of project-cartographer on `$1` (or current directory).
+Run only the deterministic scripted phases (1, 1.5, 1.6, 2, 3, 3.5) of cartographer on `$1` (or current directory).
 
 Use `bash run_pipeline.sh $1` (or `--readonly` if the user prefers `~/.cartographer/<hash>/` over polluting their repo).
 

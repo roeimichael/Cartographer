@@ -1,6 +1,6 @@
-# project-cartographer
+# cartographer
 
-[![CI](https://github.com/roeimichael/project-cartographer/actions/workflows/ci.yml/badge.svg)](https://github.com/roeimichael/project-cartographer/actions/workflows/ci.yml)
+[![CI](https://github.com/roeimichael/cartographer/actions/workflows/ci.yml/badge.svg)](https://github.com/roeimichael/cartographer/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2)](https://claude.com/claude-code)
 
@@ -12,7 +12,7 @@ A **Claude Code plugin** that builds a dependency + call graph, segments the rep
 
 ```bash
 # Inside Claude Code:
-/plugin install roeimichael/project-cartographer
+/plugin install roeimichael/cartographer
 ```
 
 Or clone into your Claude Code plugins directory directly.

@@ -114,7 +114,7 @@ def synthesize(pmap: dict) -> dict:
     spec = {
         "openapi": "3.1.0",
         "info": {
-            "title": "Synthetic OpenAPI from project-cartographer",
+            "title": "Synthetic OpenAPI from cartographer",
             "version": "synth",
             "description": "Built from statically detected endpoints. Run the server and use --live-url for richer schemas.",
         },

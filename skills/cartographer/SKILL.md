@@ -1,5 +1,5 @@
 ---
-name: project-cartographer
+name: cartographer
 version: 0.8.0
 description: Map, audit, and review large multi-segment codebases (hundreds of files, multiple integrations like Supabase, Telegram, Vercel, AI APIs, file systems, queues, etc.) by building a dependency graph, detecting functional segments, then dispatching review subagents in controlled waves. Use this skill whenever the user wants to "map out", "audit", "review", "find duplication in", "enforce style across", "understand the structure of", or "analyze a large codebase" — especially when they mention many endpoints, multiple third-party integrations, or cross-cutting consistency concerns. Use even when the user does not say "skill" or "cartographer" — phrases like "review my whole project", "find inconsistencies across the repo", "build a UML of my project", or "I have hundreds of files spread across X, Y, Z services" should trigger this. This skill consumes substantial tokens and runs many subagents; it requires explicit upfront opt-in from the user before proceeding past Phase 0.
 ---

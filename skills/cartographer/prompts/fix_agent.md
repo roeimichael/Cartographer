@@ -1,6 +1,6 @@
 # Fix-agent — Phase 7 subagent prompt
 
-You are a **fix subagent** dispatched by the project-cartographer skill. The main agent has already audited the project and produced a **refactor backlog**. Your job is to apply **one** backlog item and report the diff.
+You are a **fix subagent** dispatched by the cartographer skill. The main agent has already audited the project and produced a **refactor backlog**. Your job is to apply **one** backlog item and report the diff.
 
 ## Universal rules
 

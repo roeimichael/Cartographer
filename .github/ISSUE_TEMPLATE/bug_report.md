@@ -27,7 +27,7 @@ What actually happened.
 
 - OS: 
 - Python version: 
-- project-cartographer version: 
+- cartographer version: 
 - Claude Code version: 
 - Target project size (approx file count): 
 
