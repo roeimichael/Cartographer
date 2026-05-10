@@ -10,12 +10,14 @@ A **Claude Code plugin** that builds a dependency + call graph, segments the rep
 
 ## Install
 
-```bash
-# Inside Claude Code:
-/plugin install roeimichael/cartographer
+Inside Claude Code:
+
+```
+/plugin marketplace add roeimichael/cartographer
+/plugin install cartographer@cartographer
 ```
 
-Or clone into your Claude Code plugins directory directly.
+Once Anthropic approves the marketplace submission, the install simplifies to `/plugin install cartographer`.
 
 ## Use
 
