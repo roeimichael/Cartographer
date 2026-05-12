@@ -1,6 +1,10 @@
 # Cartographer
 
-[![CI](https://github.com/roeimichael/cartographer/actions/workflows/ci.yml/badge.svg)](https://github.com/roeimichael/cartographer/actions/workflows/ci.yml)
+<p align="center">
+  <img src="cartographer.png" alt="Cartographer" width="640">
+</p>
+
+[![CI](https://github.com/roeimichael/Cartographer/actions/workflows/ci.yml/badge.svg)](https://github.com/roeimichael/Cartographer/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2)](https://claude.com/claude-code)
 
@@ -13,11 +17,10 @@ A **Claude Code plugin** that builds a dependency + call graph, segments the rep
 Inside Claude Code:
 
 ```
-/plugin marketplace add roeimichael/cartographer
-/plugin install cartographer@roei-tools
+/plugin install cartographer
 ```
 
-Once Anthropic approves the marketplace submission, the install simplifies to `/plugin install cartographer`.
+Cartographer is published in the official Claude Code plugin marketplace — no `marketplace add` step needed.
 
 ## Use
 
