@@ -1,10 +1,10 @@
-# Cartographer
+# cartographer
 
 <p align="center">
   <img src="cartographer.png" alt="Cartographer" width="640">
 </p>
 
-[![CI](https://github.com/roeimichael/Cartographer/actions/workflows/ci.yml/badge.svg)](https://github.com/roeimichael/Cartographer/actions/workflows/ci.yml)
+[![CI](https://github.com/roeimichael/cartographer/actions/workflows/ci.yml/badge.svg)](https://github.com/roeimichael/cartographer/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2)](https://claude.com/claude-code)
 
